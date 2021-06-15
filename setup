@@ -1,0 +1,2 @@
+export FLASK_APP=pedi
+export FLASK_ENV=development

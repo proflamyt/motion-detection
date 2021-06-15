@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Welcome to Motor Detector {% endblock %}</h1>
+
+<body>
+   
+
+   <h2> SMS Contacts</h2>
+
+   {% for contact in sms %}
+    <a href="{{ url_for('post', post_id=contact['id']) }}">
+        <h2>{{ contact['name'] }} : {{ contact['phone'] }}</h2>
+    </a>
+    <span class="badge badge-primary">Date created: {{ contact['created'] }}</span>
+    <hr>
+{% endfor %}
+
+<h2> Emails </h2>
+ {% for mail in email %}
+    <a href="{{ url_for('mail', post_id=mail['id']) }}">
+        <h2>{{ mail['name'] }} : {{ mail['email'] }}</h2>
+    </a>
+    <span class="badge badge-primary">Date created: {{ mail['created'] }}</span>
+    <hr>
+{% endfor %}
+
+{% endblock %}

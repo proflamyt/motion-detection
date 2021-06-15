@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Create a New Contacts {% endblock %}</h1>
+
+<form method="post" action="{{ url_for('create') }}">
+    <div class="form-group">
+        <label for="title">Name</label>
+        <input type="text" name="name"
+               placeholder="Email User" class="form-control"
+               value="{{ request.form['name'] }}"></input>
+    </div>
+
+    <div class="form-group">
+        <label for="content">Email</label>
+        <textarea name="email" placeholder="Email"
+                  class="form-control">{{ request.form['email'] }}</textarea>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
+<br><hr>
+
+<form method="post" action="{{ url_for('create_sms') }}">
+    <div class="form-group">
+        <label for="title">Name</label>
+        <input type="text" name="name"
+               placeholder="User name" class="form-control"
+               value="{{ request.form['name'] }}"></input>
+    </div>
+
+    <div class="form-group">
+        <label for="content">Number</label>
+        <textarea name="number" placeholder="User sms"
+                  class="form-control">{{ request.form['sms'] }}</textarea>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form> 
+
+{% endblock %}
